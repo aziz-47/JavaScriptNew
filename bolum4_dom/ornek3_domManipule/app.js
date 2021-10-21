@@ -42,3 +42,4 @@ h1.appendChild(yazi);
 sonDiv.after(h1); //input-div in sonrasina h1 i ekliyoruz.
 h1.style.marginTop = "20px";
 h1.style.color = "red";
+//Bugun git e push ettik. Calismaya devam.
