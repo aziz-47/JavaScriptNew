@@ -43,3 +43,26 @@ sonDiv.after(h1); //input-div in sonrasina h1 i ekliyoruz.
 h1.style.marginTop = "20px";
 h1.style.color = "red";
 //Bugun git e push ettik. Calismaya devam.
+
+h1.style.textAlign = "left";
+
+document.querySelector(".ekle").onclick = function () {
+  //ekleme yapilacak listeyi al.
+  const liste = document.querySelector(".liste");
+  //input elemanina girilen yeni satirin degerini al
+  const satir = document.querySelector(".dil").value;
+  //yeni girilen satiri saklamak iciin bir li olusturudk
+  const yeniLi = document.createElement("li");
+  //yeni li iicn textnode olusturuduk
+  const textNode = document.createTextNode(satir);
+  //Olusturdugumuz texnode u yeni li ye bagladik
+  yeniLi.appendChild(textNode);
+  //yeni eklenen satiri var olan lsiteye (ul) baglayalim
+  liste.appendChild(yeniLi);
+};
+
+document.querySelector(".sil").onclick = function () {
+  const liste = document.querySelector(".liste");
+  //liste .removeChild(liste.firstElementChild); //ilk elemani siler
+  liste.removeChild(liste.lastElementChild); // son elemani siler
+};
