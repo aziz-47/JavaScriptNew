@@ -40,8 +40,11 @@ const h1 = document.createElement("h1");
 const yazi = document.createTextNode("Programlama Dilleri");
 h1.appendChild(yazi);
 sonDiv.after(h1); //input-div in sonrasina h1 i ekliyoruz.
-h1.style.marginTop = "20px";
-h1.style.color = "red";
+h1.className = "yeni-h1";
+//Olusturdugumuz h1 elemanina bir class adi atamis olduk.
+//Normalde burda stillendirma yapmistik simdi de css.styleda yapmak iicn class ismi verdik orda yapalim.
+// h1.style.marginTop = "20px";
+// h1.style.color = "red";
 //Bugun git e push ettik. Calismaya devam.
 
 h1.style.textAlign = "left";
