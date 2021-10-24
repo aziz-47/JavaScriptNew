@@ -1,0 +1,20 @@
+.container {
+  width: 100vw; /* viewport with*/
+  min-height: 100vh; /*viewport heigt*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.btn {
+  padding: 20px;
+  background-color: brown;
+  border-radius: 15px;
+}
+.btn:hover {
+  background-color: rgb(69, 139, 75);
+}
+
+h1 {
+  background-color: white;
+}
