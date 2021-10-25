@@ -55,7 +55,7 @@
 
 // console.log(yazi);
 
-// ============================ FOREACH DONGUSU ====================
+// ============================ FOREACH METHODU ====================
 
 //-------------- ÖRNEK -------------------
 let ogrenciler = ["John", "Ali", "Can"];
@@ -102,8 +102,75 @@ document.querySelector(".toplam").innerHTML = `${toplam} TL`;
 
 //Orginal diiziyi degistirmek istersek eger
 
-fiyatlar.forEach(
-  (deger, indis, dizi) => (dizi[indis] = (deger * 1.1).toFixed(2))
-);
+let toplamFiyat = 0;
+let zamliFiyatlar = [];
 
-console.log(fiyatlar);
+fiyatlar.forEach((deger, indis, dizi) => {
+  zamliFiyatlar[indis] = (deger * 1.1).toFixed(2);
+  toplamFiyat += Number(zamliFiyatlar[indis]);
+});
+
+console.log(zamliFiyatlar);
+console.log(toplamFiyat);
+
+// ============================ MAP METHODU ====================
+
+//ORNEK: Dizinin herbir elemanin 2 katini aliniz.
+
+const rakamlar = [3, 5, 3, 2, 6, 7, 9];
+//map() methodu return yapiyor.
+
+const ikiKat = rakamlar.map((x) => x * 2);
+
+console.log(ikiKat);
+console.log(ikiKat, rakamlar);
+
+//ORENK: isimler dizisinin icerisindeki her ismi buyuk harf olarak ynei bir diziye saklayin.
+
+const isimler = [
+  "Ahmet",
+  "mehmet",
+  "ismet",
+  "SAFFET",
+  "Can",
+  "Canan",
+  "Cavidan",
+];
+
+//map() methodu normal sartlarda bir dizi dondurur.
+const buyuk = isimler.map((isim) => isim.toUpperCase());
+buyuk.forEach((isim) => console.log(isim));
+
+//map() methodundan sonra eger bir termianl islmei (forEach gibi) kullanilirsa map() bir dizi dondurmez.
+
+//Pipline
+isimler.map((isim) => isim.toUpperCase()).forEach((isim) => console.log(isim));
+
+//Eger herbir ismi alip tek tek yazdrimamzii isterse forEach ile alip degistirebliriz.
+
+//Dolar,Euro partite hesap
+
+tlFiyat = [120, 340, 550, 245, 322.5, 789];
+// Kur inputlarini al.
+const dolarKur = document.querySelector(".dolar");
+const yuroKur = document.querySelector(".yuro");
+
+//dolar ve euro fiyatlari yazacak elemanlari al
+const dolar = document.querySelector(".dolar-fiyat");
+const yuro = document.querySelector(".yuro-fiyat");
+
+// dolar kur input'unun değeri degistiginde urunlerin
+// dolar fiyatlarini güncelle.
+dolarKur.onchange = function () {
+  dolarKur.value < 0
+    ? alert("Kur 0'dan küçük olamaz")
+    : (dolar.innerHTML = tlFiyat.map((tl) => Math.round(tl / dolarKur.value)));
+};
+
+// euro kur input'unun değeri degistiginde urunlerin
+// euro fiyatlarini güncelle.
+yuroKur.onchange = function () {
+  yuroKur.value < 0
+    ? alert("Kur 0'dan küçük olamaz")
+    : (yuro.innerHTML = tlFiyat.map((tl) => Math.round(tl / yuroKur.value)));
+};
