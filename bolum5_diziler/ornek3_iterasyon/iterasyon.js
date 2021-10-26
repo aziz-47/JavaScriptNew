@@ -174,3 +174,38 @@ yuroKur.onchange = function () {
     ? alert("Kur 0'dan küçük olamaz")
     : (yuro.innerHTML = tlFiyat.map((tl) => Math.round(tl / yuroKur.value)));
 };
+
+//-------------- ÖRNEK -------------------
+// tlFiyatlar dizisindeki ürün fiyatlarinin 250 TL altında olanlarına
+// %10 zam, üstünde olanlarına da %20 zam yapılmak isteniyor. Ayrıca
+// zamli fiyatlar aşağıdaki formatta saklanmak isteniyor.
+// 1. ürünün zamlı fiyati 110 TL gibi
+
+// ! tlFiyat = [120, 340, 550, 245, 322.5, 789];
+
+const zamliTlFiyatlar = tlFiyat.map((deger, indis) => {
+  if (deger < 250) {
+    return `${indis + 1}.urunun zamli fiyati:  ${deger * 1.1}`;
+  } else {
+    return `${indis + 1}.urunun zamli fiyati:  ${deger * 1.2}`;
+  }
+});
+
+document.querySelector(".zamli-fiyat").innerHTML = zamliFiyatlar;
+
+console.log(zamliTlFiyatlar);
+
+//tlFiyat listesinde fiyati 250 den kucuk olanlari ayri bir listede saklayin.
+
+const kucuk250 = tlFiyat.filter((d) => d < 250);
+console.log(kucuk250);
+
+//eger sadece yazdircaksak fiyati 350 den kuuck olnalri yazdirmak icin
+tlFiyat.filter((d) => d < 250).forEach((x) => console.log(x));
+
+//  Kucukten buyuge siralama
+console.log(tlFiyat.sort((a, b) => a - b));
+
+//Buyukten kucuge siralma
+
+console.log(tlFiyat.sort((a, b) => b - a));
