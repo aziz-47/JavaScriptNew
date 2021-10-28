@@ -276,3 +276,12 @@ const buyukDortBin = maaslar
   .reduce((x, y) => x + y, 0);
 
 console.log(buyukDortBin);
+
+//maasi ortalamin alitinda olanlara %20 zamn yapalim.
+
+const ortalamaMaas = maaslar.reduce((x, y) => x + y, 0) / maaslar.length;
+const yeniMaaslar = maaslar
+  .filter((m) => m >= ortalamaMaas)
+  .map((m) => m * 1.1);
+
+console.log(yeniMaaslar);
