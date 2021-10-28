@@ -185,15 +185,15 @@ yuroKur.onchange = function () {
 
 const zamliTlFiyatlar = tlFiyat.map((deger, indis) => {
   if (deger < 250) {
-    return `${indis + 1}.urunun zamli fiyati:  ${deger * 1.1}`;
+    return `${indis + 1}.ürünün zamli fiyati : ${deger * 1.1} <br> `;
   } else {
-    return `${indis + 1}.urunun zamli fiyati:  ${deger * 1.2}`;
+    return `${indis + 1}.ürünün zamli fiyati : ${deger * 1.2} <br> `;
   }
 });
 
-document.querySelector(".zamli-fiyat").innerHTML = zamliFiyatlar;
-
-console.log(zamliTlFiyatlar);
+const stringZamliFiyatlar = zamliFiyatlar.join("");
+console.log(stringZamliFiyatlar);
+document.querySelector(".zamli-fiyat").innerHTML = stringZamliFiyatlar;
 
 //tlFiyat listesinde fiyati 250 den kucuk olanlari ayri bir listede saklayin.
 
@@ -209,3 +209,70 @@ console.log(tlFiyat.sort((a, b) => a - b));
 //Buyukten kucuge siralma
 
 console.log(tlFiyat.sort((a, b) => b - a));
+
+// ======================================================
+//                       PIPELINE
+// ======================================================
+
+//maasi 4000 $ den dusuk olanlara yuzde 10 zam yapmak istiyrouz.Ve bunlari ayri bir dizi olarak saklamak istiyoruz.
+const maaslar = [3000, 5000, 4000, 6000, 6500];
+
+const zamliMaaslar = maaslar.filter((d) => d <= 4000).map((d) => d * 1.5);
+console.log(zamliMaaslar);
+
+//Maasi 4000 den buyuk olanlara %25 zam yaparak sonucalri yazdiralim.
+maaslar
+  .filter((d) => d > 4000)
+  .map((d) => d * 1.25)
+  .forEach((d) => console.log(d));
+
+//-------------- ÖRNEK -------------------
+
+const adlar = [
+  "Samed",
+  "Hakki",
+  "Duygu",
+  "Emrullah",
+  "Bilal",
+  "Ali",
+  "Ahmet",
+  "Hasan",
+  "Defne",
+  "Serdar",
+];
+
+const isimBul = (harf) => {
+  const buyukHarf = harf.toUpperCase();
+  const dizi = adlar
+    .filter((x) => x.startsWith(buyukHarf))
+    .forEach((x) => console.log(x));
+  console.log(dizi);
+};
+
+isimBul("A");
+isimBul("a");
+isimBul("s");
+
+// ======================================================
+//                       REDUCE METHODU
+// ======================================================
+
+// ! const maaslar = [3000, 5000, 4000, 6000, 6500];
+
+//maaslarin toplamini bulunuz
+const toplamMaas = maaslar.reduce((x, y) => x + y, 0);
+console.log(toplamMaas);
+
+const toplamMaas1 = maaslar.reduce((x, y, i) => {
+  console.log(`${i} iterasyon : ${x}`);
+  return x + y;
+});
+console.log(toplamMaas1);
+
+//maasi 4000 den buyuk olan maaslarin toplamini hesaplayiniz?
+
+const buyukDortBin = maaslar
+  .filter((x) => x >= 4000)
+  .reduce((x, y) => x + y, 0);
+
+console.log(buyukDortBin);
