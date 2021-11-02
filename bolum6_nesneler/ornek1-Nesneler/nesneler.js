@@ -134,7 +134,34 @@ console.log(yaslar);
 // ÖRNEK3: kisiler dizisinindeki kişilerin isimlerini büyük harf olarak alan ve yaşlarini da 5 artıran yeni bir nesne oluşturan kodu yaziniz.
 
 const buyukHarf = kisiler.map((x) => {
-  return { ad: x.ad.toUpperCase(), yas: x.yas + 5 };
+  return {
+    ad: x.ad.toUpperCase(),
+    yas: x.yas + 5,
+    soyad: x.soyad.toUpperCase(),
+  };
 });
 
 console.log(buyukHarf);
+
+// ÖRNEK4: Yaşı 25' eşit veya küçük olanların adlarını yazdıran kodu yazınız.
+
+kisiler.filter((x) => x.yas <= 25).forEach((a) => console.log(a.ad));
+
+// ÖRNEK5: Mesleği developer olanların isim ve yaşlarını bir diziye kaydediniz.
+
+const developer = kisiler
+  .filter((x) => x.meslek == "developer")
+  .map((x) => {
+    return {
+      ad: x.ad,
+      yas: x.yas,
+    };
+  });
+
+console.log(developer);
+
+//ÖRNEK6: kisilerin ortalama yasini hesaplayiniz.
+
+const ortalamaYas =
+  kisiler.reduce((toplam, kisi) => toplam + kisi.yas, 0) / kisiler.length;
+console.log(ortalamaYas);
