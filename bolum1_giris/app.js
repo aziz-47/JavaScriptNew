@@ -1,12 +1,23 @@
+// * =======================================================
+// *                       KONSOL
+// * =======================================================
+// * Konsolda mesaj vermek için console.log() fonksiyonu kullanılır.
+
 // console.log("Hello javascript");
 // console.log("Javascript javadan daha kolaydir");
 // console.error("Bu bir hatadir.");
 // console.warn("Bu bir uyaridir.");
 // alert("Dikkat");
 
-// **======================= DEGISKEN TANIMLAMA============================
-// ** var keywordu ile degisken tanimlanabilir. Ancak modern js var keyword kullanimi azlatir. Cunku var global degsiken gibi dusunulebilri.
+// * =======================================================
+// *                 DEĞİŞKEN TANIMLAMA
+// * =======================================================
 
+//************************ VAR ****************************
+// ? var keyword ile değişken tanımlanabilir.
+// ? Ancak, modern JS var keyword'unun kullanımı azaldı.
+//? Çünkü, var global değişken gibi düşünülebilir.
+// ? Günümüzde programcılar global değişken gerekmedikçe VAR tercih etmemektedir.
 var pi = 3.14;
 console.log(pi);
 console.log(typeof pi);
@@ -27,8 +38,10 @@ isim = 4;
 console.log(isim);
 console.log(typeof isim);
 
-// TODO: cons ve let yeni degsiken tanimlama keywordleridr.
-// ! CONST : Sadece baslangicta deger atilabilri(NON-PRIMITIVLER HARIC). Sonradan degeri degsitirelemez.
+//************************ CONST ****************************
+// ? const ve let Modern JS ile gelmiş yeni değişken tanımlama keyword'leridir.
+// ! CONST: Sadece başlangıçta değer atılabilir.
+// ! Sonradan değeri değiştirilemez (non-primitive'ler hariç).
 
 // const piSayisi = 3.14;
 // console.log(piSayisi);
@@ -36,12 +49,11 @@ console.log(typeof isim);
 // piSayisi = 3; // ! Hatta const degiskene sonradan deger atilmaz.
 // console.log(piSayisi); //! Hata const degiskene sonradan deger atilamaz
 
-// ** ===========LET ====================== */
-
-// ? Eger ki degiskenimizin degeri degismesi gerekiyorsa const kullnamayiz bunun yerine LET kulanabilriz.
-
-// ! LET Block scope bir degiskendir. Var ise global scope bir tanimlamadir.
-// ? Bloc scop sadece tanimli oldugu alanda gecerlidir.
+//************************ LET ****************************
+// ? Eğerki değişkenimİzin değerinin değişmesi gerekiyor ise const kullanamayız.
+// ? Bunun yerine LET kullanabiliriz.
+// ! LET Block-scope bir değişkendir. VAR ise global-scope bir tanımlamadır.
+// * Block-scope: Sadece tanımlı olduğu alanda geçerlidir.
 
 let fiyat;
 console.log(fiyat);
@@ -58,6 +70,10 @@ console.log(isim3);
 const dil = null;
 console.log(dil);
 console.log(typeof dil);
+
+// * =======================================================
+// *                 ARİTMETİK OPERATÖRLER
+// * =======================================================
 
 const sucuk = 40;
 const sakiz = 2;
@@ -78,6 +94,7 @@ const s1 = 7;
 const s2 = "7";
 console.log(s1 + s2);
 
+// ! Template Literal ( String Şablonları, ES6 ile gelmiştir. )
 const ad1 = "Mesut";
 const yas = "55";
 console.log("Benim adim " + ad1 + " " + "yasim " + yas + " dir.");
@@ -111,8 +128,10 @@ console.log("BIRLER : " + birler);
 console.log("ONLAR: " + onlar);
 console.log("YUZLER: " + yuzler);
 
-// **=========================KARSILASTIRMA OPERATORLERI======================
-//! 3 lu karsilastimra operatorleri kullanildiginda hem veri tipi hem de icerik konrtol edilir.
+// * =======================================================
+// *         KARŞILAŞTIRMA ve LOJİK OPERATÖRLER
+// * =======================================================
+// ! 3'lü karşılaştırma operatörü kullanıldığında hem veri tipi hem de içerik kontrolü yapılır.
 const sayi1 = 100;
 const sayi2 = "100";
 
@@ -127,7 +146,9 @@ const z = undefined;
 
 console.log(x && y && z); //undifuned bastirir.
 
-//** ======================TERNARY=========================================== */
+// * =======================================================
+// *                      TERNARY
+// * =======================================================
 
 //const age = +prompt("Yasinizi giriniz.");
 const name1 = prompt("Adinizi giriniz.");
